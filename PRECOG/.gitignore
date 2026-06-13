@@ -1,0 +1,21 @@
+# Virtual environment
+.venv/
+__pycache__/
+*.pyc
+
+# Kaggle credentials - NEVER commit (see README for setup)
+kaggle.json
+*.rtf
+
+# Raw / processed data (download via src/data_loader.py, see README)
+data/
+
+# Large generated artifacts
+*.pkl
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

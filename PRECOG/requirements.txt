@@ -1,0 +1,12 @@
+pandas>=2.3
+numpy>=2.0
+scipy>=1.14
+scikit-learn>=1.8
+statsmodels>=0.14
+lightgbm>=4.6
+matplotlib>=3.10
+seaborn>=0.13
+pyarrow>=18.0
+kaggle>=1.6
+jupyter>=1.1
+ipykernel>=6.29
