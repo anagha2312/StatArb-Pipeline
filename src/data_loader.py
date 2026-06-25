@@ -40,7 +40,7 @@ def load_raw_panel(raw_dir: Path | str = RAW_DATA_DIR) -> pd.DataFrame:
     for f in files:
         ticker = f.stem  # e.g. "Asset_001"
         df = pd.read_csv(f, parse_dates=["Date"])
-        df = df.rename(columns=str.lower).rename(columns={"date": "date"})
+        df = df.rename(columns=str.lower)
         df["ticker"] = ticker
         frames.append(df)
 

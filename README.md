@@ -1,4 +1,4 @@
-# PRECOG Quant Trading Task
+# Quant Trading Task
 
 A four-part, end-to-end systematic equity strategy pipeline built on a
 100-asset daily OHLCV dataset (2016-2026, ~10 years): data cleaning and
@@ -13,20 +13,19 @@ statistic is documented with *why* it cannot leak future information into
 the past. See [Methodology & no-leakage design](#methodology--no-leakage-design)
 for the details.
 
-> This repo accompanies a written report (`Report.pdf`). The code, notebooks,
-> and figures here are the source of truth for all numbers in that report.
 
 ---
 
 ## Project structure
 
 ```
-PRECOG/
+StatArb-Pipeline/
 ├── Part1_Data_Cleaning_Feature_Engineering.ipynb   # load, clean, engineer features
 ├── Part2_Model_Training_Strategy.ipynb             # walk-forward ensemble + IC analysis
 ├── Part3_Backtesting_Analysis.ipynb                # long/short backtest, costs, alpha/beta
 ├── Part4_Statistical_Arbitrage.ipynb               # pairs-trading overlay + blending
 ├── src/
+│   ├── __init__.py
 │   ├── config.py        # single source of truth: split dates, strategy params
 │   ├── data_loader.py    # raw CSVs -> long-format panel
 │   ├── cleaning.py        # OHLC integrity fixes, causal outlier capping
@@ -40,14 +39,14 @@ PRECOG/
 │   ├── figures/          # all PNG plots referenced below
 │   └── tables/            # all CSV result tables referenced below
 ├── requirements.txt
-└── Report.pdf            # written report (separate deliverable)
+
 ```
 
 ---
 
 ## Data
 
-**Source**: [PRECOG Quant Task 2026 dataset](https://www.kaggle.com/datasets/iamspace/precog-quant-task-2026)
+**Source**: [Quant Task dataset](https://www.kaggle.com/datasets/iamspace/precog-quant-task-2026)
 on Kaggle — 100 anonymized assets (`Asset_001` … `Asset_100`), daily OHLCV,
 2016-01-25 to 2026-01-16 (2,511 trading days each, fully aligned calendar).
 
@@ -219,8 +218,9 @@ good as any single component model in aggregate.
 
 | | |
 |---|---|
-| ![IC by fold](outputs/figures/part2_ic_by_fold.png) | ![Rolling IC](outputs/figures/part2_rolling_ic.png) |
-| ![Feature importance](outputs/figures/part2_feature_importance.png) | ![Strategy grid search](outputs/figures/part2_strategy_grid_search.png) |
+| ![Target distribution](outputs/figures/part2_target_distribution.png) | ![IC by fold](outputs/figures/part2_ic_by_fold.png) |
+| ![Rolling IC](outputs/figures/part2_rolling_ic.png) | ![Feature importance](outputs/figures/part2_feature_importance.png) |
+| ![Strategy grid search](outputs/figures/part2_strategy_grid_search.png) | |
 
 `atr_14`, `realized_vol_20`, and the cross-sectional z-score/rank of
 `realized_vol_20` and `ret_5d` are the most important LightGBM features,
